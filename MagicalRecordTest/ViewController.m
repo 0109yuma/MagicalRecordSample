@@ -15,9 +15,10 @@
 
 
 @interface ViewController ()
-<UITableViewDataSource, UITableViewDelegate>
+<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -81,21 +82,49 @@
     }];
 }
 
+-(void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
+{
+    User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", user.name];
+}
+
+#pragma mark - UITableViewDataSource
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    id<NSFetchedResultsSectionInfo>sectionInfo = self.fetchedResultsController.sections[section];
+    return [sectionInfo numberOfObjects];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.fetchedResultsController.sections.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
+
+#pragma mark - NSFetchedResultController
+
+-(NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    self.fetchedResultsController = [User MR_fetchAllSortedBy:@"name"
+                                                    ascending:YES
+                                                withPredicate:nil
+                                                      groupBy:nil
+                                                     delegate:self
+                                                    inContext:[NSManagedObjectContext MR_contextForCurrentThread]];
+    return self.fetchedResultsController;
+}
+
+
 
 @end
