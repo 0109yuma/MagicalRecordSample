@@ -17,6 +17,8 @@
 		3B6BFF0C19C94D6D0022347A /* MagicalRecordTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B6BFF0A19C94D6D0022347A /* MagicalRecordTest.xcdatamodeld */; };
 		3B6BFF2119C94ED80022347A /* _Bike.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6BFF1D19C94ED80022347A /* _Bike.m */; };
 		3B6BFF2219C94ED80022347A /* Bike.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6BFF2019C94ED80022347A /* Bike.m */; };
+		3B6BFF2819C96AE10022347A /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6BFF2719C96AE10022347A /* _User.m */; };
+		3B6BFF2B19C96AE90022347A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6BFF2A19C96AE90022347A /* User.m */; };
 		C802842B7F79412FA7876D97 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC75BBDAE44045C6BAA24A07 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,10 @@
 		3B6BFF1D19C94ED80022347A /* _Bike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Bike.m; sourceTree = "<group>"; };
 		3B6BFF1F19C94ED80022347A /* Bike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bike.h; sourceTree = "<group>"; };
 		3B6BFF2019C94ED80022347A /* Bike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bike.m; sourceTree = "<group>"; };
+		3B6BFF2619C96AE10022347A /* _User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _User.h; sourceTree = "<group>"; };
+		3B6BFF2719C96AE10022347A /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
+		3B6BFF2919C96AE90022347A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3B6BFF2A19C96AE90022347A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		AC75BBDAE44045C6BAA24A07 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -149,6 +155,8 @@
 			children = (
 				3B6BFF1C19C94ED80022347A /* _Bike.h */,
 				3B6BFF1D19C94ED80022347A /* _Bike.m */,
+				3B6BFF2619C96AE10022347A /* _User.h */,
+				3B6BFF2719C96AE10022347A /* _User.m */,
 			);
 			path = Machine;
 			sourceTree = "<group>";
@@ -158,6 +166,8 @@
 			children = (
 				3B6BFF1F19C94ED80022347A /* Bike.h */,
 				3B6BFF2019C94ED80022347A /* Bike.m */,
+				3B6BFF2919C96AE90022347A /* User.h */,
+				3B6BFF2A19C96AE90022347A /* User.m */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -305,6 +315,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B6BFF2B19C96AE90022347A /* User.m in Sources */,
+				3B6BFF2819C96AE10022347A /* _User.m in Sources */,
 				3B6BFF2219C94ED80022347A /* Bike.m in Sources */,
 				3B6BFEE819C947E50022347A /* ViewController.m in Sources */,
 				3B6BFEE519C947E50022347A /* AppDelegate.m in Sources */,

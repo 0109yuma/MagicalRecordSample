@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "CoreData+MagicalRecord.h"
 #import "Bike.h"
+#import "User.h"
 
 
 @interface ViewController ()
@@ -44,9 +45,9 @@
     NSArray *bikeArray = [Bike MR_findAll];
     [bikeArray enumerateObjectsUsingBlock:^(Bike *obj, NSUInteger idx, BOOL *stop) {
         NSLog(@"--------------------------");
-        NSLog(@"name::%@", obj.name);
-        NSLog(@"comment::%@", obj.comment);
-        NSLog(@"tag::%@", obj.tag);
+        NSLog(@"bike_name::%@", obj.name);
+        NSLog(@"bike_comment::%@", obj.comment);
+        NSLog(@"bike_tag::%@", obj.tag);
     }];
 }
 
@@ -54,22 +55,20 @@
 {
     // 非同期
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-        Bike *localBike = [Bike MR_createInContext:localContext];
-        localBike.name = @"tanaka";
-        localBike.comment = @"wonderful";
-        localBike.tag = @"korea";
+        User *localUser = [User MR_createInContext:localContext];
+        localUser.name = @"yuma";
+        localUser.ageValue = 21;
         
     } completion:^(BOOL success, NSError *error) {
         if (!success) {
             
         } else {
-            NSLog(@"count::%d", [[Bike MR_numberOfEntities] intValue]);
-            NSArray *bikeArray = [Bike MR_findAll];
-            [bikeArray enumerateObjectsUsingBlock:^(Bike *obj, NSUInteger idx, BOOL *stop) {
+            NSLog(@"count::%d", [[User MR_numberOfEntities] intValue]);
+            NSArray *bikeArray = [User MR_findAll];
+            [bikeArray enumerateObjectsUsingBlock:^(User *obj, NSUInteger idx, BOOL *stop) {
                 NSLog(@"--------------------------");
-                NSLog(@"name::%@", obj.name);
-                NSLog(@"comment::%@", obj.comment);
-                NSLog(@"tag::%@", obj.tag);
+                NSLog(@"user_name::%@", obj.name);
+                NSLog(@"user_age::%d", obj.ageValue);
             }];
         }
     }];
