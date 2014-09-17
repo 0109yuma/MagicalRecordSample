@@ -5,6 +5,7 @@
 
 const struct UserAttributes UserAttributes = {
 	.age = @"age",
+	.date = @"date",
 	.name = @"name",
 };
 
@@ -62,6 +63,8 @@ const struct UserAttributes UserAttributes = {
 - (void)setPrimitiveAgeValue:(int16_t)value_ {
 	[self setPrimitiveAge:[NSNumber numberWithShort:value_]];
 }
+
+@dynamic date;
 
 @dynamic name;
 

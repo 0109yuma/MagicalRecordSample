@@ -5,6 +5,7 @@
 
 const struct BikeAttributes BikeAttributes = {
 	.comment = @"comment",
+	.date = @"date",
 	.name = @"name",
 	.tag = @"tag",
 };
@@ -39,6 +40,8 @@ const struct BikeAttributes BikeAttributes = {
 }
 
 @dynamic comment;
+
+@dynamic date;
 
 @dynamic name;
 

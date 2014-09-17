@@ -5,6 +5,7 @@
 
 extern const struct BikeAttributes {
 	__unsafe_unretained NSString *comment;
+	__unsafe_unretained NSString *date;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *tag;
 } BikeAttributes;
@@ -22,6 +23,10 @@ extern const struct BikeAttributes {
 
 //- (BOOL)validateComment:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSDate* date;
+
+//- (BOOL)validateDate:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSString* name;
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
@@ -36,6 +41,9 @@ extern const struct BikeAttributes {
 
 - (NSString*)primitiveComment;
 - (void)setPrimitiveComment:(NSString*)value;
+
+- (NSDate*)primitiveDate;
+- (void)setPrimitiveDate:(NSDate*)value;
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;

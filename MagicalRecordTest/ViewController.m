@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self saveBySync];
+    //[self saveBySync];
     [self saveByAsync];
     
     self.tableView.delegate = self;
@@ -47,6 +47,7 @@
     bike.name = @"masa_bike";
     bike.comment = @"bad";
     bike.tag = @"america";
+    bike.date = [NSDate date];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 
     NSLog(@"count::%d", [[Bike MR_numberOfEntities] intValue]);
@@ -64,9 +65,9 @@
     // 非同期
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
         User *localUser = [User MR_createInContext:localContext];
-        localUser.name = @"tanaka";
-        localUser.ageValue = 24;
-        
+        localUser.name = @"sama-zu";
+        localUser.ageValue = 27;
+        localUser.date = [NSDate date];
     } completion:^(BOOL success, NSError *error) {
         if (!success) {
             
@@ -78,6 +79,8 @@
                 NSLog(@"user_name::%@", obj.name);
                 NSLog(@"user_age::%d", obj.ageValue);
             }];
+            
+            [self.tableView reloadData];
         }
     }];
 }
@@ -86,6 +89,11 @@
 {
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@", user.name];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd 'at' HH:mm";
+    NSString *dateStr = [formatter stringFromDate:user.date];
+    cell.detailTextLabel.text = dateStr;
 }
 
 #pragma mark - UITableViewDataSource
@@ -115,9 +123,9 @@
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
-    
-    self.fetchedResultsController = [User MR_fetchAllSortedBy:@"name"
-                                                    ascending:YES
+
+    self.fetchedResultsController = [User MR_fetchAllSortedBy:@"date,name"
+                                                    ascending:NO
                                                 withPredicate:nil
                                                       groupBy:nil
                                                      delegate:self
@@ -125,6 +133,9 @@
     return self.fetchedResultsController;
 }
 
-
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView reloadData];
+}
 
 @end
