@@ -7,12 +7,17 @@
 //
 
 #import "ViewController.h"
+#define MR_LOGGING_ENABLED 0
+#define MR_ENABLE_ACTIVE_RECORD_LOGGING 0
 #import "CoreData+MagicalRecord.h"
 #import "Bike.h"
 #import "User.h"
 
 
 @interface ViewController ()
+<UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -25,6 +30,8 @@
     [self saveBySync];
     [self saveByAsync];
     
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,7 +43,7 @@
 {
     // 同期
     Bike *bike = [Bike MR_createEntity];
-    bike.name = @"kana_bike";
+    bike.name = @"masa_bike";
     bike.comment = @"bad";
     bike.tag = @"america";
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
@@ -56,8 +63,8 @@
     // 非同期
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
         User *localUser = [User MR_createInContext:localContext];
-        localUser.name = @"yuma";
-        localUser.ageValue = 21;
+        localUser.name = @"tanaka";
+        localUser.ageValue = 24;
         
     } completion:^(BOOL success, NSError *error) {
         if (!success) {
@@ -72,6 +79,23 @@
             }];
         }
     }];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    return cell;
 }
 
 @end
