@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>296FC8EF-75BD-4D05-989F-FB5C4B57B1ED</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MagicalRecordTest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6F942E7CB713CA96ACE07909840B4435658691AE</key>
+		<string>github.com:0109yuma/MagicalRecordSample.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MagicalRecordTest.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6F942E7CB713CA96ACE07909840B4435658691AE</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:0109yuma/MagicalRecordSample.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6F942E7CB713CA96ACE07909840B4435658691AE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6F942E7CB713CA96ACE07909840B4435658691AE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MagicalRecordTest</string>
+		</dict>
+	</array>
+</dict>
+</plist>

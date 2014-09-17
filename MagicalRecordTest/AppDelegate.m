@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"MagicalRecordTest.sql"];
+    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"MagicalRecordTest.sql"];
     
     return YES;
 }

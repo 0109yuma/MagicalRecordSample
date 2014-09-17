@@ -5,7 +5,12 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tag" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Bike" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="User" positionX="-54" positionY="18" width="128" height="75"/>
     </elements>
 </model>
