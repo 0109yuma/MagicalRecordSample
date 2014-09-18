@@ -64,10 +64,20 @@
 {
     // 非同期
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-        User *localUser = [User MR_createInContext:localContext];
-        localUser.name = @"sama-zu";
-        localUser.ageValue = 27;
-        localUser.date = [NSDate date];
+        
+        //複数の処理
+        for (int i = 0; i < 3; i++) {
+            User *localUser = [User MR_createInContext:localContext];
+            localUser.name = [NSString stringWithFormat:@"takyase-%d", i];
+            localUser.ageValue = 30 + i;
+            localUser.date = [NSDate date];
+            NSLog(@"###############");
+        }
+        
+//        User *localUser = [User MR_createInContext:localContext];
+//        localUser.name = @"yuma---";
+//        localUser.ageValue = 21;
+//        localUser.date = [NSDate date];
     } completion:^(BOOL success, NSError *error) {
         if (!success) {
             
